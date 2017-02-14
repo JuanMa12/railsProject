@@ -1,0 +1,18 @@
+<%=render('partials/nav') %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-6 col-md-6">
+      <%=render('partials/alert') %>
+    </div>
+    <div class="col-md-12">
+      <% @images.each do  |image| %>
+          <%image.user_id%>
+          <% if current_user.id == image.user_id%>
+              <%= image_tag ('/images/'+image.image_file_name), style:'width: 100px; height: 100px', class: 'img-thumbnail img-circle'%>
+          <% end %>
+      <% end %>
+      <h1><%= current_user.name.capitalize %><%= current_user.last_name.capitalize %></h1>
+      <p><%= current_user.email %></p>
+    </div>
+  </div>
+</div>

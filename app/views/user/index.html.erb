@@ -1,0 +1,43 @@
+<%=render('partials/nav') %>
+<div class="container">
+    <div class="row">
+      <div class="col-md-offset-6 col-md-6">
+        <%=render('partials/alert') %>
+      </div>
+        <div class="col-md-12">
+            <h1>Users</h1>
+            <p></p>
+            <table class="table">
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Last_name</th>
+                <th>Email</th>
+                <th>Login</th>
+                <th>Ip</th>
+                <th></th>
+            </tr>
+            <% @users.each do |user| %>
+            <tr>
+              <% @images.each do  |image| %>
+                  <%image.user_id%>
+                  <% if user.id == image.user_id%>
+                      <td><%= image_tag ('/images/'+image.image_file_name), style:'width: 50px; height: 50px', class: 'img-thumbnail img-circle'%></td>
+                  <% end %>
+              <% end %>
+                <td><%= user.name %></th>
+                <td><%= user.last_name %></th>
+                <td><%= user.email %></th>
+                <td><%= user.last_login %></th>
+                <td><%= user.ip %></th>
+                <td>
+                  <%= link_to "<button class='btn btn-primary'><i class='fa fa-edit'></i></button>".html_safe, user_edit_path(user) %>
+                  <%= link_to "<button class='btn btn-danger'><i class='fa fa-times'></i></button>".html_safe, user_destroy_path(user) %>
+                </td>
+            </tr>
+            <% end %>
+            </table>
+
+        </div>
+    </div>
+</div>

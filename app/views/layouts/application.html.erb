@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Project</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application' %>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js' %>
+    <%- global_link='/js/' %>
+    <%= javascript_include_tag "#{global_link}dropify.min.js",  "#{global_link}bootstrap.min.js" %>
+
+  </head>
+
+  <body>
+    <%= yield %>
+
+
+    <script type="text/javascript" charset="utf-8">
+      $('.dropify').dropify();
+    </script>
+
+  </body>
+</html>

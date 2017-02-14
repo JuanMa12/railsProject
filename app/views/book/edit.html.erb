@@ -1,0 +1,28 @@
+<%=render('partials/nav') %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Edit Book</h1>
+            <p></p>
+           <%=form_for(@book,url:book_update_path, method:'PUT') do |f| %>
+              <div class="input-group">
+                <input type="hidden" class="form-control" name="id" value="<%= @book.id %>">
+                <label>Name:</label>
+                <input type="text" class="form-control" name="name" value="<%= @book.name %>">
+              </div>
+              <div class="input-group">
+                <label>Category:</label>
+                <select type="number" class="form-control" name="category">
+                  <% @categories.each do |category| %>
+                      <option value="<%= category.id %>"><%= category.name %></option>
+                  <% end %>
+                </select>
+              </div>
+              <div class="input-group"><br>
+               <button class="btn btn-primary">Save changes</button>
+               </div>
+            <%end %>
+        </div>
+    </div>
+</div>
+

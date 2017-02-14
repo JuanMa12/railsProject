@@ -1,0 +1,30 @@
+<%=render('partials/nav') %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-6 col-md-6">
+      <%=render('partials/alert') %>
+    </div>
+    <div class="col-md-12">
+      <h1>Books</h1>
+      <p></p>
+      <table class="table">
+        <tr>
+          <th>Name</th>
+          <th>Category</th>
+          <th></th>
+        </tr>
+        <% @books.each do |book| %>
+            <tr>
+              <td><%= book.name %></th>
+              <td><%= book.category_id %></th>
+              <td>
+                <%= link_to "<button class='btn btn-primary'><i class='fa fa-edit'></i></button>".html_safe, book_edit_path(book) %>
+                <%= link_to "<button class='btn btn-danger'><i class='fa fa-times'></i></button>".html_safe, book_destroy_path(book) %>
+              </td>
+            </tr>
+        <% end %>
+      </table>
+
+    </div>
+  </div>
+</div>
